@@ -3,7 +3,7 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoSunnyO
 
 const Footer = () => {
     return (
-        <div>
+        <div className=' container mx-auto'>
             <footer className="footer sm:footer-horizontal bg-cyan-950 p-10 text-white">
                 <aside className='flex flex-col'>
                     <h2 className=" flex justify-center items-center text-4xl font-bold text-white">
