@@ -4,7 +4,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-         <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+         <div className="relative w-full h-[400px] md:h-[500px] rounded-b-2xl overflow-hidden">
         <Image
           src={banner}
           alt="Summer Sale Banner"

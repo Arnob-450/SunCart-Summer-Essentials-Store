@@ -30,7 +30,7 @@ const brands = [
 
 const TopBrands = () => {
   return (
-    <div className='h-full min-w-2xl '>
+    <div className='h-full min-w-[745px] '>
       <div className='border-l-4 border-orange-500 pl-3 mb-6'>
         <h2 className='text-2xl font-bold text-teal-950'>Top Brands</h2>
         <p className='text-teal-700 font-medium text-sm'>

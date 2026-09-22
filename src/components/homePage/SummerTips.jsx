@@ -23,7 +23,7 @@ const tips = [
 
 const SummerCareTips = () => {
   return (
-    <div className='relative overflow-hidden rounded-2xl bg-teal-50/70 p-8 h-full min-w-2xl'>
+    <div className='relative overflow-hidden rounded-2xl bg-teal-50/70 p-8 h-full min-w-[745px]'>
       <GiPalmTree className='absolute -top-2 right-4 text-teal-800/20 text-8xl rotate-12' />
       <div className='relative flex items-start gap-4'>
         <div className='flex flex-col'>

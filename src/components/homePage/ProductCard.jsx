@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaArrowRightLong, FaStar } from 'react-icons/fa6';
 
@@ -24,7 +25,7 @@ const ProductCard = ({product}) => {
                   <p className='text-teal-800 font-semibold '>{product.description}</p>
                   <div className="card-actions justify-between flex items-center mt-auto pt-5">
                     <div className='font-semibold text-teal-950 '>${product.price.toFixed(2)}</div>
-                    <button className="btn btn-primary gap-3 rounded-4xl bg-teal-800">View Details <FaArrowRightLong /></button>
+                    <Link href={`/productDetails/${product.id}`} className="btn btn-primary gap-3 rounded-4xl bg-teal-800 ">View Details <FaArrowRightLong /></Link>
                   </div>
                 </div>
               </div>

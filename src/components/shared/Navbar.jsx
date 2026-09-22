@@ -6,7 +6,7 @@ import { FaRegUser } from 'react-icons/fa';
 const navLink = <>
     <ul className='flex justify-between items-center gap-6'>
         <li><NavLink href="/">Home</NavLink></li>
-        <li><NavLink href="/about-us">Products</NavLink></li>
+        <li><NavLink href="/products">Products</NavLink></li>
     </ul>
 </>
 const Navbar = () => {
@@ -34,11 +34,13 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <div className="navbar-end  flex  items-center gap-3">
+                <div className="navbar-end  flex  items-center gap-4">
                    <Link href={'./profile'} ><div className='p-2 border rounded-full '>
                         <FaRegUser />
                     </div></Link> 
-                    <Link href={'./login'} className="btn bg-amber-500">Login</Link>
+                    <Link href={'./login'} className="btn btn-ghost  border-teal-900 ">Login</Link>
+                    <Link href={'./login'} className="btn bg-amber-500 hover:bg-amber-600">Register</Link>
+                    
                 </div>
             </div>
         </div>
