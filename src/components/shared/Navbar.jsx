@@ -3,12 +3,14 @@ import React from 'react';
 import { IoSunnyOutline } from 'react-icons/io5';
 import NavLink from './NavLink';
 import { FaRegUser } from 'react-icons/fa';
+
 const navLink = <>
     <ul className='flex justify-between items-center gap-6'>
         <li><NavLink href="/">Home</NavLink></li>
         <li><NavLink href="/products">Products</NavLink></li>
     </ul>
 </>
+
 const Navbar = () => {
     return (
         <div className='container mx-auto'>
@@ -22,11 +24,11 @@ const Navbar = () => {
                             tabIndex={-1}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-l font-semibold">
                             <li><NavLink href="/">Home</NavLink></li>
-                            <li><NavLink href="/about-us">Products</NavLink></li>
+                            <li><NavLink href="/products">Products</NavLink></li>
                         </ul>
                     </div>
-                    <h2 className="btn btn-ghost text-xl font-bold">
-                        <span className='text-amber-500 text-4xl mr-1'><IoSunnyOutline /></span>Sun<span className='text-amber-500 -ml-1'>Cart</span>
+                    <h2 className="btn btn-ghost text-lg sm:text-xl font-bold px-2">
+                        <span className='text-amber-500 text-3xl sm:text-4xl mr-1'><IoSunnyOutline /></span>Sun<span className='text-amber-500 -ml-1'>Cart</span>
                     </h2>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -34,17 +36,18 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <div className="navbar-end  flex  items-center gap-4">
-                   <Link href={'./profile'} ><div className='p-2 border rounded-full '>
-                        <FaRegUser />
-                    </div></Link> 
-                    <Link href={'./login'} className="btn btn-ghost  border-teal-900 ">Login</Link>
-                    <Link href={'./login'} className="btn bg-amber-500 hover:bg-amber-600">Register</Link>
-                    
+                <div className="navbar-end flex items-center gap-2 sm:gap-4">
+                    <Link href={'./profile'}>
+                        <div className='p-2 border rounded-full'>
+                            <FaRegUser />
+                        </div>
+                    </Link>
+                    <Link href={'./login'} className="btn btn-ghost btn-sm sm:btn-md border-teal-900 hidden sm:inline-flex">Login</Link>
+                    <Link href={'./register'} className="btn btn-sm sm:btn-md bg-amber-500 hover:bg-amber-600">Register</Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Navbar;
+export default Navbar

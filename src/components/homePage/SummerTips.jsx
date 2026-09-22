@@ -23,13 +23,13 @@ const tips = [
 
 const SummerCareTips = () => {
   return (
-    <div className='relative overflow-hidden rounded-2xl bg-teal-50/70 p-8 h-full min-w-[745px]'>
+    <div className='relative overflow-hidden rounded-2xl bg-teal-50/70 p-8 h-full w-full'>
       <GiPalmTree className='absolute -top-2 right-4 text-teal-800/20 text-8xl rotate-12' />
-      <div className='relative flex items-start gap-4'>
+      <div className='relative flex flex-col md:flex-row items-start gap-6 md:gap-4'>
         <div className='flex flex-col'>
           <div className='flex items-center gap-2 mb-2'>
             <WiDaySunny className='text-yellow-500 text-3xl' />
-            <h2 className='text-2xl font-bold text-teal-950'>Summer Care Tips</h2>
+            <h2 className='text-xl sm:text-2xl font-bold text-teal-950'>Summer Care Tips</h2>
           </div>
 
           <p className='text-teal-800 font-medium max-w-xs'>
@@ -41,7 +41,7 @@ const SummerCareTips = () => {
           </button>
         </div>
 
-        <div className='flex flex-col gap-4 ml-6'>
+        <div className='flex flex-col gap-4 md:ml-6'>
           {tips.map((tip, idx) => (
             <div key={idx} className='flex items-center gap-3'>
               <div className='w-9 h-9 rounded-full bg-teal-100 flex items-center justify-center shrink-0'>

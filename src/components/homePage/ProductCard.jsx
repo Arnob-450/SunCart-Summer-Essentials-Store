@@ -6,7 +6,7 @@ import { FaArrowRightLong, FaStar } from 'react-icons/fa6';
 const ProductCard = ({product}) => {
     return (
         <div>
-              <div key={product.id} className="card bg-base-100 w-full shadow-sm rounded-2xl  flex flex-col h-full">
+              <div className="card bg-base-100 w-full shadow-sm rounded-2xl  flex flex-col h-full">
                 <figure className='relative w-full h-64'>
                   <Image
                     src={product.image}

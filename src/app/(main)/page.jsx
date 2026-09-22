@@ -16,7 +16,7 @@ const Home = async () => {
   return (
     <div className='container mx-auto px-4'>
       <Banner></Banner>
-      <div className='flex justify-between items-center my-3 px-2 border-l-4 border-orange-500 '>
+      <div className='flex flex-col sm:flex-row justify-between sm:items-center my-5 px-5 border-l-4 border-amber-500 gap-3'>
         <div className='text-teal-900'>
           <h2 className='text-3xl font-bold'>Popular Product</h2>
           <p className='font-semibold'>Handpicked favorites for your perfect summer.</p>
@@ -25,7 +25,7 @@ const Home = async () => {
           <Link href={'/product'} className=' btn btn-ghost text-teal-900' >View All<FaArrowRightLong /></Link>
         </div>
       </div>
-      <div className=' grid grid-cols-3 justify-center gap-15 items-stretch mb-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-6 lg:gap-15 items-stretch mb-6'>
         {
           popularProduct.map((product) => {
             return (
@@ -34,7 +34,7 @@ const Home = async () => {
           })
         }
       </div >
-      <div className='flex justify-between mb-5 '>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 mb-5 '>
         <div>
           <SummerCareTips></SummerCareTips>
         </div>

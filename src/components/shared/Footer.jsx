@@ -6,10 +6,10 @@ const Footer = () => {
         <div className=' container mx-auto'>
             <footer className="footer sm:footer-horizontal bg-cyan-950 p-10 text-white">
                 <aside className='flex flex-col'>
-                    <h2 className=" flex justify-center items-center text-4xl font-bold text-white">
-                        <span className='text-amber-500 text-6xl mr-1'><IoSunnyOutline /></span>Sun<span className='text-amber-500 '>Cart</span>
+                    <h2 className=" flex justify-center sm:justify-start items-center text-2xl sm:text-4xl  font-bold text-white">
+                        <span className='text-amber-500 text-4xl sm:text-6xl mr-1'><IoSunnyOutline /></span>Sun<span className='text-amber-500 '>Cart</span>
                     </h2>
-                    <p>
+                    <p className='text-sm sm:text-base mt-1'>
                         Summer Essentials, All in One Place.
                     </p>
                 </aside>
@@ -20,7 +20,7 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <h6 className="footer-title">Follow Us</h6>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 justify-center sm:justify-start">
                         <a className="link link-hover"><IoLogoFacebook size={20} /></a>
                         <a className="link link-hover"><IoLogoInstagram size={20} /></a>
                         <a className="link link-hover"><IoLogoTwitter size={20} /></a>

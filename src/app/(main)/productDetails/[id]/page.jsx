@@ -12,9 +12,9 @@ const ProductDetailsPage = async ({ params }) => {
     console.log(product);
     const inStock = product.stock > 0;
     return (
-        <div className='container mx-auto px-4 py-10'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-start'>
-                <figure className='relative w-full h-96 rounded-2xl overflow-hidden shadow-sm'>
+        <div className='container mx-auto px-4 py-10 sm:py-10'>
+            <div className='grid grid-cols-1  md:grid-cols-2 gap-6 sm:gap-10 items-start'>
+                <figure className='relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-sm'>
                     <Image
                         src={product.image}
                         alt={product.name}
@@ -26,7 +26,7 @@ const ProductDetailsPage = async ({ params }) => {
 
                 <div className='flex flex-col'>
                   
-                    <div className='flex items-center gap-2 mb-2'>
+                    <div className='flex items-center gap-2 mb-2 flex-wrap'>
                         <span className='badge badge-outline text-teal-700 border-teal-700'>
                             {product.category}
                         </span>
@@ -35,7 +35,7 @@ const ProductDetailsPage = async ({ params }) => {
                         </span>
                     </div>
 
-                    <h1 className='text-3xl font-bold text-teal-950'>{product.name}</h1>
+                    <h1 className='text-2xl sm:text-3xl font-bold text-teal-950'>{product.name}</h1>
 
                  
                     <div className='flex items-center gap-2 mt-2'>
@@ -51,7 +51,7 @@ const ProductDetailsPage = async ({ params }) => {
                         {product.description}
                     </p>
 
-                    <div className='text-3xl font-bold text-teal-950 mt-6'>
+                    <div className='text-2xl sm:text-3xl font-bold text-teal-950 mt-6'>
                         ${product.price.toFixed(2)}
                     </div>
 
@@ -67,7 +67,7 @@ const ProductDetailsPage = async ({ params }) => {
                             </span>
                         )}
                     </div>
-                    <div className='flex items-center gap-4 mt-8'>
+                    <div className='flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-8'>
                         <button
                             disabled={!inStock}
                             className='btn btn-primary gap-3 rounded-4xl bg-teal-800 px-6 disabled:bg-teal-300 disabled:cursor-not-allowed'
