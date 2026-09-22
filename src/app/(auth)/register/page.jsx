@@ -1,21 +1,48 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { IoSunnyOutline } from 'react-icons/io5';
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 const RegisterPage = () => {
-    
-        const {
-            register,
-            handleSubmit,
-            formState: { errors },
-    
-        } = useForm();
-        const handelRegister = (data) => {
-            console.log(data)
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+
+    } = useForm();
+
+    const [isShowPassword , setIsShowPassword] =useState(false);
+    const handelRegister = async(data) => {
+        console.log(data)
+        const { email, name, photoUrl, password } = data;
+        const { data:res,error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password:password,
+            image: photoUrl,
+            callbackURL:"/login",
+        });
+        console.log(res ,error ,"res")
+        if(error){
+            toast.error(error.message,{
+               autoClose: 1000,
+            })
+          
         }
+        if(res){
+          toast.success('Register Successful',{
+             autoClose: 1000,
+          })
+        }
+
+
+    }
     return (
         <div className='container mx-auto min-h-[90vh] flex justify-center items-center bg-teal-500/7'>
             <div className='flex flex-col justify-center items-center  rounded-2xl p-10 max-w-md mx-auto bg-white w-100'>
@@ -36,7 +63,7 @@ const RegisterPage = () => {
                                 type="text"
                                 className="input w-full"
                                 placeholder="Enter Your Name"
-                                {...register("Name", { required: "Name is required" })}
+                                {...register("name", { required: "Name is required" })}
                             />
                             {
                                 errors.name && <p className='text-red-500'>{errors.name.message}</p>
@@ -72,20 +99,29 @@ const RegisterPage = () => {
 
 
                         </fieldset>
-                        <fieldset className="fieldset w-full">
+                        <fieldset className="fieldset w-full relative">
                             <legend className="fieldset-legend">Password</legend>
                             <input
-                                type="password"
+                            
+                                type={isShowPassword?"text":"password"}
                                 className="input w-full "
                                 placeholder="Enter Your Password"
                                 {...register("password", { required: 'password is required' })} />
+                                <span className='absolute right-3 top-4' onClick={()=> setIsShowPassword(!isShowPassword)}>
+                                    {
+                                        isShowPassword?<FaEye></FaEye>:<FaEyeSlash></FaEyeSlash>
+                                    }
+                                    
+
+                                </span>
+                                
                             {
                                 errors.password && <p className='text-red-500'>{errors.password.message}</p>
                             }
 
                         </fieldset>
                         <div className='mt-8 w-full'>
-                            <button className='btn bg-teal-600/80 w-full rounded-4xl'>Login</button>
+                            <button className='btn bg-teal-600/80 w-full rounded-4xl'>Register</button>
                         </div>
 
                     </form>

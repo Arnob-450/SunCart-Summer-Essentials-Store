@@ -1,10 +1,13 @@
 'use client'
 
-import React from 'react';
+
 import { IoSunnyOutline } from 'react-icons/io5';
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+
 const LoginPage = () => {
 
     const {
@@ -13,8 +16,23 @@ const LoginPage = () => {
         formState: { errors },
 
     } = useForm();
-    const handelLogin = (data) => {
-        console.log(data)
+    const handelLogin = async (data) => {
+        const { email, password } = data;
+        const { data: res, error } = await authClient.signIn.email({
+            email: email,
+            password: password,
+            rememberMe: true,
+            callbackURL: "/",
+        });
+        console.log(res, error);
+        if (error) {
+            toast.error(error.message,);
+        }
+        if (res) {
+            toast.error('Login Successful')
+        }
+
+
     }
     return (
         <div className='container mx-auto min-h-[90vh] flex justify-center items-center bg-teal-500/7'>
@@ -36,11 +54,11 @@ const LoginPage = () => {
                                 type="email"
                                 className="input w-full"
                                 placeholder="Enter Your Email"
-                                {...register("email",{ required:"Email is required"  })}
+                                {...register("email", { required: "Email is required" })}
                             />
-                             {
+                            {
                                 errors.email && <p className='text-red-500'>{errors.email.message}</p>
-                             }
+                            }
 
 
                         </fieldset>
@@ -50,10 +68,10 @@ const LoginPage = () => {
                                 type="password"
                                 className="input w-full "
                                 placeholder="Enter Your Password"
-                                {...register("password",{ required: 'password is required' })} />
-                             {
+                                {...register("password", { required: 'password is required' })} />
+                            {
                                 errors.password && <p className='text-red-500'>{errors.password.message}</p>
-                             }
+                            }
 
                         </fieldset>
                         <div className='mt-8 w-full'>
