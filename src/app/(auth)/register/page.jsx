@@ -8,8 +8,11 @@ import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
-const RegisterPage = () => {
+import { useRouter } from 'next/navigation';
 
+
+const RegisterPage = () => {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -39,6 +42,7 @@ const RegisterPage = () => {
           toast.success('Register Successful',{
              autoClose: 1500,
           })
+           router.push('/login');
         }
 
 
