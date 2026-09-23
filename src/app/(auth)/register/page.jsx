@@ -31,17 +31,22 @@ const RegisterPage = () => {
         console.log(res ,error ,"res")
         if(error){
             toast.error(error.message,{
-               autoClose: 1000,
+               autoClose: 1500,
             })
           
         }
         if(res){
           toast.success('Register Successful',{
-             autoClose: 1000,
+             autoClose: 1500,
           })
         }
 
 
+    }
+     const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     }
     return (
         <div className='container mx-auto min-h-[90vh] flex justify-center items-center bg-teal-500/7'>
@@ -129,7 +134,7 @@ const RegisterPage = () => {
                 </div>
 
                 <div className='mt-4 w-full '>
-                    <button className='btn btn-ghost border-2 border-teal-800 w-full rounded-4xl'><FcGoogle />Login With Google</button>
+                    <button className='btn btn-ghost border-2 border-teal-800 w-full rounded-4xl' onClick={handleGoogleLogin}><FcGoogle />Login With Google</button>
                 </div>
 
                 <p className='mt-6 text-sm'>Already have an account? <Link href="/login" className="text-red-500 hover:underline">Login here</Link></p>

@@ -7,8 +7,12 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { useState } from 'react';
+import { date } from 'better-auth';
 
 const LoginPage = () => {
+    const [isShowPassword, setIsShowPassword] = useState(false);
 
     const {
         register,
@@ -26,14 +30,24 @@ const LoginPage = () => {
         });
         console.log(res, error);
         if (error) {
-            toast.error(error.message,);
+            toast.error(error.message, {
+                autoClose: 1500,
+            })
         }
         if (res) {
-            toast.error('Login Successful')
+            toast.success('Register Successful', {
+                autoClose: 1500,
+            })
         }
 
 
     }
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
+   
     return (
         <div className='container mx-auto min-h-[90vh] flex justify-center items-center bg-teal-500/7'>
             <div className='flex flex-col justify-center items-center  rounded-2xl p-10 max-w-md mx-auto bg-white w-100'>
@@ -62,13 +76,22 @@ const LoginPage = () => {
 
 
                         </fieldset>
-                        <fieldset className="fieldset w-full">
+                        <fieldset className="fieldset w-full relative">
                             <legend className="fieldset-legend">Password</legend>
                             <input
-                                type="password"
+
+                                type={isShowPassword ? "text" : "password"}
                                 className="input w-full "
                                 placeholder="Enter Your Password"
                                 {...register("password", { required: 'password is required' })} />
+                            <span className='absolute right-3 top-4' onClick={() => setIsShowPassword(!isShowPassword)}>
+                                {
+                                    isShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                                }
+
+
+                            </span>
+
                             {
                                 errors.password && <p className='text-red-500'>{errors.password.message}</p>
                             }
@@ -83,7 +106,7 @@ const LoginPage = () => {
                 </div>
 
                 <div className='mt-4 w-full '>
-                    <button className='btn btn-ghost border-2 border-teal-800 w-full rounded-4xl'><FcGoogle />Login With Google</button>
+                    <button className='btn btn-ghost border-2 border-teal-800 w-full rounded-4xl' onClick={handleGoogleLogin}><FcGoogle />Login With Google</button>
                 </div>
 
                 <p className='mt-6 text-sm'>Do not have an account? <Link href="/register" className="text-red-500 hover:underline">Register here</Link></p>
