@@ -3,9 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { IoSunnyOutline } from 'react-icons/io5';
 import NavLink from './NavLink';
-import { FaRegUser } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
-import { date } from 'better-auth';
 import Image from 'next/image';
 import userAvater from "@/assets/account-avatar-profile-user.svg"
 
@@ -48,10 +46,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex items-center gap-2 sm:gap-4">
-                    {   isPending?"...loading":
+                    {isPending ? "...loading" :
                         user ? (
                             <>
-                                <div className='flex flex-col'>
+                                <div className='hidden sm:flex  flex-col '>
                                     <h2 className='font-semibold'>{user.name}</h2>
                                     <p className='text-sm'>{user.email}</p>
                                 </div>
@@ -66,12 +64,16 @@ const Navbar = () => {
                                         />
                                     </div>
                                 </Link>
-                                <button className='btn bg-amber-500' onClick={async()=>await authClient.signOut()}>Logout</button>
+                                <Link href={'./profile'} className="btn btn-ghost btn-sm sm:btn-md border-teal-900  sm:inline-flex">My Profile</Link>
+
+                                <button className='btn bg-amber-500' onClick={async () => await authClient.signOut()}>Logout</button>
                             </>
                         ) : (
                             <>
-                                <Link href={'./login'} className="btn btn-ghost btn-sm sm:btn-md border-teal-900 hidden sm:inline-flex">Login</Link>
-                                <Link href={'./register'} className="btn btn-sm sm:btn-md bg-amber-500 hover:bg-amber-600">Register</Link>
+
+                                <Link href={'./register'} className="btn btn-sm sm:btn-md bg-amber-500 hover:bg-amber-600 hidden sm:inline-flex">Register</Link>
+
+                                <Link href={'./login'} className="btn btn-ghost btn-sm sm:btn-md border-teal-900  ">Login</Link>
 
 
                             </>

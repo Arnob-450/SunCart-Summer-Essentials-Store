@@ -25,7 +25,7 @@ const Home = async () => {
           <Link href={'/product'} className=' btn btn-ghost text-teal-900' >View All<FaArrowRightLong /></Link>
         </div>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-6 lg:gap-15 items-stretch mb-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-6 lg:gap-15 items-stretch mb-6 '>
         {
           popularProduct.map((product) => {
             return (

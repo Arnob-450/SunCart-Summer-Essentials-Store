@@ -14,14 +14,14 @@ const Banner = () => {
         />
 
         <div className='absolute inset-0 flex flex-col justify-center px-20 '>
-          <p className='text-teal-900 text-sm font-semibold tracking-wide'>LIMITED TIME OFFER</p>
-          <h2 className='text-4xl md:text-5xl text-teal-950 font-bold'>Summer Sale</h2>
-          <h2 className='text-4xl md:text-5xl text-amber-500 font-bold mb-3'>50% OFF</h2>
-          <p className='text-teal-950 mb-5 mt-'>
+          <p className= 'animate__animated animate__fadeInDown text-teal-900 text-sm font-semibold tracking-wide'>LIMITED TIME OFFER</p>
+          <h2 className='animate__animated animate__fadeInLeft text-4xl md:text-5xl text-teal-950 font-bold' style={{ animationDelay: '0.2s' }}>Summer Sale</h2>
+          <h2 className='animate__animated animate__fadeInLeft text-4xl md:text-5xl text-amber-500 font-bold mb-3'  style={{ animationDelay: '0.4s' }}>50% OFF</h2>
+          <p className='text-teal-950 mb-5 animate__animated animate__fadeInUp'style={{ animationDelay: '0.6s' }}>
             Stay stylish. Stay cool. Your summer essentials <br className='hidden md:block' />
             are now at unbeatable prices!
           </p>
-          <button className='btn bg-amber-500 hover:bg-amber-600 text-teal-950 border-none rounded-full w-fit px-6 mt-10'>
+          <button className='animate__animated animate__zoomIn btn bg-amber-500 hover:bg-amber-600 text-teal-950 border-none rounded-full w-fit px-6 mt-10'>
             Shop Now 
           </button>
         </div>
